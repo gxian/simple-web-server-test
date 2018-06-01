@@ -1,0 +1,20 @@
+# 基础样式
+BasedOnStyle: Google
+
+# 缩进宽度
+IndentWidth: 4
+
+# 格式兼容C++11
+Standard: Cpp11
+
+# 不使用tab键
+UseTab: Never
+
+# 每行字符的长度
+ColumnLimit: 80
+
+# 访问修饰符偏移量
+AccessModifierOffset: -4
+
+# 如果在构造函数初始值设定项不适合在一条线，把每个初始值设定项放在自己的行上
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
