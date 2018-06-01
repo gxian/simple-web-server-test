@@ -22,9 +22,8 @@ int main(int argc, char** argv) {
 
     for (int i = 0; i < cnt; ++i) {
         client.request("POST", "/json", json_string,
-                       [cnt](std::shared_ptr<HttpClient::Response> response,
+                       [](std::shared_ptr<HttpClient::Response> response,
                              const SimpleWeb::error_code& ec) {
-                           std::cout << "count: " << cnt << std::endl;
                            if (!ec) {
                                std::cout << response->content.rdbuf()
                                          << std::endl;
