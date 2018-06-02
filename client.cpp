@@ -17,13 +17,16 @@ int main(int argc, char** argv) {
     int cnt = std::atoi(count.c_str());
 
     HttpClient client(address);
-    std::string json_string =
-        "{\"firstName\": \"John\",\"lastName\": \"Smith\",\"age\": 25}";
+    std::string head = "echo ";
 
     for (int i = 0; i < cnt; ++i) {
-        client.request("POST", "/json", json_string,
+        std::string s = head + std::to_string(i);
+        std::time_t send_time = std::chrono::system_clock::to_time_t(
+            std::chrono::system_clock::now());
+        std::cout << "send req:" << s << ", time: " << std::ctime(&send_time);
+        client.request("POST", "/echo", s,
                        [](std::shared_ptr<HttpClient::Response> response,
-                             const SimpleWeb::error_code& ec) {
+                          const SimpleWeb::error_code& ec) {
                            if (!ec) {
                                std::cout << response->content.rdbuf()
                                          << std::endl;
